@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Online Quiz Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Include FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h1>QuizApp</h1>
+            </div>
+            <div class="controls">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Start Screen -->
+            <section id="start-screen" class="screen active">
+                <div class="card start-card">
+                    <h2>Test Your Web Dev Knowledge</h2>
+                    <p>Challenge yourself with our curated questions on HTML, CSS, and JavaScript.</p>
+                    <div class="high-score-display">
+                        <i class="fa-solid fa-trophy"></i> High Score: <span id="high-score-display">0</span>%
+                    </div>
+                    <ul class="rules-list">
+                        <li><i class="fa-solid fa-check"></i> 5 multiple-choice questions</li>
+                        <li><i class="fa-solid fa-check"></i> 15 seconds per question</li>
+                        <li><i class="fa-solid fa-check"></i> Cannot change answer once selected</li>
+                    </ul>
+                    <button id="start-btn" class="btn primary-btn pulse">Start Quiz <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </section>
+
+            <!-- Quiz Screen -->
+            <section id="quiz-screen" class="screen">
+                <div class="card quiz-card">
+                    <div class="quiz-header">
+                        <div class="progress-container">
+                            <span class="question-tracker">Question <span id="current-question-num">1</span> of <span id="total-questions">5</span></span>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="timer-container">
+                            <svg class="timer-svg" viewBox="0 0 100 100">
+                                <circle class="timer-circle-bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="timer-circle-fg" id="timer-circle" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <div class="timer-text" id="timer-text">15</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-container">
+                        <h2 id="question-text">Question goes here?</h2>
+                    </div>
+
+                    <div class="options-container" id="options-container">
+                        <!-- Options will be injected here via JS -->
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button id="next-btn" class="btn primary-btn hidden">Next Question <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Result Screen -->
+            <section id="result-screen" class="screen">
+                <div class="card result-card">
+                    <div class="result-icon">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h2>Quiz Completed!</h2>
+                    <p class="result-message" id="result-message">Great job!</p>
+                    
+                    <div class="score-container">
+                        <div class="score-circle">
+                            <span id="score-percentage">0%</span>
+                        </div>
+                        <p>You scored <strong id="score-points">0</strong> out of <strong id="total-score">5</strong></p>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="restart-btn" class="btn primary-btn"><i class="fa-solid fa-rotate-right"></i> Play Again</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
